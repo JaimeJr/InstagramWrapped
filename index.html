@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Instagram Wrapped - Maíra & Jaime</title>
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS (vamos criar depois) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Container principal -->
+    <div class="container">
+        
+        <!-- SLIDE 0 - CAPA -->
+        <div class="slide active" id="slide-0">
+            <div class="slide-content">
+                <div class="logo">
+                    <span class="logo-icon">📸</span>
+                </div>
+                <h1 class="title">INSTAGRAM<br>WRAPPED</h1>
+                <div class="year-badge">1 Ano!!</div>
+                <p class="subtitle">Nossa amizade em<br>retrospectiva</p>
+                
+                <div class="profile-names">
+                    <span class="name">Maíra</span>
+                    <span class="name-divider">x</span>
+                    <span class="name">Jaime</span>
+                </div>
+                
+                <button class="start-button" onclick="nextSlide()">
+                    Clique para iniciar
+                    <span class="arrow">→</span>
+                </button>
+            </div>
+            
+            <div class="slide-footer">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 0%"></div>
+                </div>
+                <div class="slide-counter">0/10</div>
+            </div>
+        </div>
+        
+        <!-- SLIDE 1 - INTRODUÇÃO -->
+        <div class="slide" id="slide-1">
+            <div class="slide-content">
+                <div class="slide-icon">📆</div>
+                <h2 class="slide-title">1 ANO DE<br>CONVERSA!!</h2>
+                
+                <div class="date-box">
+                    <div class="date-item">
+                        <span class="date-label">DE</span>
+                        <span class="date-value">04/03/2025</span>
+                    </div>
+                    <div class="date-item">
+                        <span class="date-label">ATÉ</span>
+                        <span class="date-value">04/03/2026</span>
+                    </div>
+                </div>
+                
+                <p class="highlight-text">
+                    Foram 365 dias de muitos memes,<br>
+                    áudios e fofocas <span class="emoji">kkkkk</span>
+                </p>
+                
+                <div class="floating-emojis">
+                    <span>🎬</span>
+                    <span>🎙️</span>
+                    <span>💬</span>
+                    <span>📸</span>
+                </div>
+            </div>
+            
+            <div class="slide-footer">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 10%"></div>
+                </div>
+                <div class="slide-counter" onclick="goToSlide(0)">1/10</div>
+            </div>
+        </div>
+        
+        <!-- SLIDE 2 - PRIMEIRAS MENSAGENS -->
+        <div class="slide" id="slide-2">
+            <div class="slide-content">
+                <div class="slide-icon">📨</div>
+                <h2 class="slide-title">PRIMEIRAS<br>MENSAGENS</h2>
+                
+                <p class="context-text">
+                    Tudo começou com um "Oi?" despretensioso
+                </p>
+                
+                <div class="chat-preview">
+                    <div class="message-row">
+                        <span class="sender-m">M:</span>
+                        <span class="message-text">Oi?</span>
+                    </div>
+                    <div class="message-row">
+                        <span class="sender-j">J:</span>
+                        <span class="message-text">Oii, tudo bem?</span>
+                    </div>
+                    <div class="message-row">
+                        <span class="sender-m">M:</span>
+                        <span class="message-text">Tudo e por aí?</span>
+                    </div>
+                    <div class="message-row">
+                        <span class="sender-m">M:</span>
+                        <span class="message-text">A gente se conhece? Hahaha</span>
+                    </div>
+                    <div class="message-row">
+                        <span class="sender-j">J:</span>
+                        <span class="message-text">Tudo certo</span>
+                    </div>
+                    <div class="message-row">
+                        <span class="sender-j">J:</span>
+                        <span class="message-text">Ainda não, kkkkk é que seu perfil apareceu nas sugestões</span>
+                    </div>
+                    <div class="message-row">
+                        <span class="sender-m">M:</span>
+                        <span class="message-text">Aaaah tá kkkkkkk</span>
+                    </div>
+                    <div class="message-row">
+                        <span class="sender-m">M:</span>
+                        <span class="message-text">É que deu a impressão que te vi ontem no bloco, ia perguntar como conseguiu o meu Instagram kkkk</span>
+                    </div>
+                    <div class="message-row">
+                        <span class="sender-j">J:</span>
+                        <span class="message-text">Ontem eu nem consegui ir, tava legal?</span>
+                    </div>
+                    <div class="message-row">
+                        <span class="sender-m">M:</span>
+                        <span class="message-text">Jura? Nossa era alguém muito parecido com você</span>
+                    </div>
+                    <div class="message-row">
+                        <span class="sender-j">J:</span>
+                        <span class="message-text">Juro kkkkkk fiquei acordado até tarde domingo, aí na segunda eu tava morto.</span>
+                    </div>
+                    <div class="message-row">
+                        <span class="sender-m">M:</span>
+                        <span class="message-text">Kkkkkkkkkk eu sei bem como é</span>
+                    </div>
+                    <div class="message-row">
+                        <span class="sender-j">J:</span>
+                        <span class="message-text">O foda é que só fui dormir tarde porque fiquei assistindo o Oscar kkkkkkkkk</span>
+                    </div>
+                    <div class="message-row">
+                        <span class="sender-j">J:</span>
+                        <span class="message-text">Pelo menos o Brasil ganhou um kkkk valeu a pena</span>
+                    </div>
+                </div>
+                
+                <p class="footer-note">E o resto é história!</p>
+            </div>
+            
+            <div class="slide-footer">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 20%"></div>
+                </div>
+                <div class="slide-counter">2/10</div>
+            </div>
+        </div>
+        
+        <!-- SLIDE 3 - REI DOS REELS -->
+        <div class="slide" id="slide-3">
+            <div class="slide-content">
+                <div class="slide-icon">👑</div>
+                <h2 class="slide-title">REI DOS REELS</h2>
+                
+                <p class="context-text">
+                    Melhor forma de se comunicar é mandando meme né? <span class="emoji">kkkkk</span>
+                </p>
+                
+                <div class="ranking-container">
+                    <div class="ranking-item gold">
+                        <div class="ranking-position">
+                            <span class="crown">👑</span>
+                            <span class="position-number">1</span>
+                        </div>
+                        <div class="ranking-info">
+                            <span class="ranking-name">JAIME</span>
+                            <div class="ranking-bar">
+                                <div class="bar-fill" style="width: 100%"></div>
+                            </div>
+                            <span class="ranking-value">5.044 reels</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ranking-item silver">
+                        <div class="ranking-position">
+                            <span class="position-number">2</span>
+                        </div>
+                        <div class="ranking-info">
+                            <span class="ranking-name">MAÍRA</span>
+                            <div class="ranking-bar">
+                                <div class="bar-fill" style="width: 89%"></div>
+                            </div>
+                            <span class="ranking-value">4.493 reels</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="highlight-small">
+                    Não é querendo me gabar mais ganhei por 551 REELS!
+                </p>
+            </div>
+            
+            <div class="slide-footer">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 30%"></div>
+                </div>
+                <div class="slide-counter">3/10</div>
+            </div>
+        </div>
+        
+        <!-- SLIDE 4 - A FONTE DOS REELS -->
+        <div class="slide" id="slide-4">
+            <div class="slide-content">
+                <div class="slide-icon">📺</div>
+                <h2 class="slide-title">A FONTE DOS REELS</h2>
+                
+                <p class="context-text">
+                    De tantas páginas, essas são as favoritas <span class="emoji">kkkkk</span>
+                </p>
+                
+                <div class="pages-ranking">
+                    <div class="page-item">
+                        <span class="page-position">1</span>
+                        <span class="page-name">Memes Brasil</span>
+                        <span class="page-value">390</span>
+                        <div class="page-bar">
+                            <div class="bar-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="page-item">
+                        <span class="page-position">2</span>
+                        <span class="page-name">Brino</span>
+                        <span class="page-value">134</span>
+                        <div class="page-bar">
+                            <div class="bar-fill" style="width: 34%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="page-item">
+                        <span class="page-position">3</span>
+                        <span class="page-name">Melted Videos</span>
+                        <span class="page-value">124</span>
+                        <div class="page-bar">
+                            <div class="bar-fill" style="width: 32%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="page-item">
+                        <span class="page-position">4</span>
+                        <span class="page-name">Moviecom Cinemas</span>
+                        <span class="page-value">120</span>
+                        <div class="page-bar">
+                            <div class="bar-fill" style="width: 31%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="page-item">
+                        <span class="page-position">5</span>
+                        <span class="page-name">CazeTV</span>
+                        <span class="page-value">83</span>
+                        <div class="page-bar">
+                            <div class="bar-fill" style="width: 21%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="footer-note">"O algoritmo sabe da gente" kkkkk</p>
+            </div>
+            
+            <div class="slide-footer">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 40%"></div>
+                </div>
+                <div class="slide-counter">4/10</div>
+            </div>
+        </div>
+        
+        <!-- SLIDE 5 - FALANDO PELOS COTOVELOS -->
+        <div class="slide" id="slide-5">
+            <div class="slide-content">
+                <div class="slide-icon">💬</div>
+                <h2 class="slide-title">FALANDO PELOS<br>COTOVELOS</h2>
+                
+                <p class="context-text">
+                    Dá pra escrever um livro com tanta mensagem <span class="emoji">kkkkkkkkk</span>
+                </p>
+                
+                <div class="stats-comparison">
+                    <div class="stat-block">
+                        <div class="stat-icon">🗣️</div>
+                        <div class="stat-name">JAIME</div>
+                        <div class="stat-value">19.905</div>
+                        <div class="stat-label">mensagens</div>
+                        <div class="stat-bar">
+                            <div class="bar-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-block">
+                        <div class="stat-icon">🗣️</div>
+                        <div class="stat-name">MAÍRA</div>
+                        <div class="stat-value">19.695</div>
+                        <div class="stat-label">mensagens</div>
+                        <div class="stat-bar">
+                            <div class="bar-fill" style="width: 99%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="highlight-small">
+                    Não contei os áudios porque eles vem agora kkkkkkk!
+                </p>
+            </div>
+            
+            <div class="slide-footer">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 50%"></div>
+                </div>
+                <div class="slide-counter">5/10</div>
+            </div>
+        </div>
+        
+        <!-- SLIDE 6 - MAYPODCAST -->
+        <div class="slide" id="slide-6">
+            <div class="slide-content">
+                <div class="slide-icon">🎙️</div>
+                <h2 class="slide-title">MAYPODCAST</h2>
+                
+                <p class="context-text">
+                    "Facilmente o Podcast que eu mais ouvi ultimamente kkkkkkkkkk"
+                </p>
+                
+                <div class="audio-stats">
+                    <div class="audio-card">
+                        <div class="audio-number">8.058</div>
+                        <div class="audio-label">TOTAL DE ÁUDIOS</div>
+                    </div>
+                    
+                    <div class="audio-card secondary">
+                        <div class="audio-number">18h 51min 24s</div>
+                        <div class="audio-label">DURAÇÃO TOTAL</div>
+                    </div>
+                </div>
+                
+                <div class="audio-detail">
+                    <span class="detail-label">Em minutos:</span>
+                    <span class="detail-value">1131 minutos!</span>
+                </div>
+                
+                <div class="audio-wave">
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                </div>
+                
+                <p class="fun-fact">
+                    E sim, eu mandei UM áudio, de 12 segundos<br>
+                </p>
+            </div>
+            
+            <div class="slide-footer">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 60%"></div>
+                </div>
+                <div class="slide-counter">6/10</div>
+            </div>
+        </div>
+        
+        <!-- SLIDE 7 - SEQUÊNCIA (STREAK) -->
+        <div class="slide" id="slide-7">
+            <div class="slide-content">
+                <div class="slide-icon">🔥</div>
+                <h2 class="slide-title">ASSUNTO BOM<br>NUNCA TERMINA</h2>
+                
+                <div class="streak-container">
+                    <div class="streak-number">338</div>
+                    <div class="streak-label">DIAS CONSECUTIVOS</div>
+                    
+                    <div class="streak-dates">
+                        <span class="date-badge">De 30/03/2025</span>
+                        <span class="date-badge"> Até </span>
+                        <span class="date-badge">Hoje</span>
+                    </div>
+                </div>
+                
+                <p class="streak-text">
+                    Isso significa que todo santo dia<br>
+                    teve pelo menos 1 meme ou<br>
+                    uma fofoca nova!
+                </p>
+            </div>
+            
+            <div class="slide-footer">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 70%"></div>
+                </div>
+                <div class="slide-counter">7/10</div>
+            </div>
+        </div>
+        
+        <!-- SLIDE 8 - PRA QUALQUER HORA -->
+        <div class="slide" id="slide-8">
+            <div class="slide-content">
+                <div class="slide-icon">⏰</div>
+                <h2 class="slide-title">PRA QUALQUER HORA!</h2>
+                
+                <div class="hours-container">
+                    <div class="hour-item">
+                        <span class="hour-label">Madrugada (0h-5h)</span>
+                        <div class="hour-bar-container">
+                            <div class="hour-bar" style="width: 18%"></div>
+                        </div>
+                        <span class="hour-value">3.973</span>
+                    </div>
+                    
+                    <div class="hour-item">
+                        <span class="hour-label">Manhã (6h-12h)</span>
+                        <div class="hour-bar-container">
+                            <div class="hour-bar" style="width: 58%"></div>
+                        </div>
+                        <span class="hour-value">12.855</span>
+                    </div>
+                    
+                    <div class="hour-item">
+                        <span class="hour-label">Tarde (13h-18h)</span>
+                        <div class="hour-bar-container">
+                            <div class="hour-bar" style="width: 93%"></div>
+                        </div>
+                        <span class="hour-value">20.764</span>
+                    </div>
+                    
+                    <div class="hour-item">
+                        <span class="hour-label">Noite (19h-23h)</span>
+                        <div class="hour-bar-container">
+                            <div class="hour-bar" style="width: 100%"></div>
+                        </div>
+                        <span class="hour-value">22.172</span>
+                    </div>
+                </div>
+                
+                <p class="peak-time">
+                    Pico: <strong>NOITE</strong> (22k de mensagem)<br>
+                    <span class="small">nossa hora da fofoca</span>
+                </p>
+            </div>
+            
+            <div class="slide-footer">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 80%"></div>
+                </div>
+                <div class="slide-counter">8/10</div>
+            </div>
+        </div>
+        
+        <!-- SLIDE 9 - PASSOU VOANDO (RESUMO GERAL) -->
+        <div class="slide" id="slide-9">
+            <div class="slide-content">
+                <div class="slide-icon">✨</div>
+                <h2 class="slide-title">PASSOU VOANDO!</h2>
+                
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <span class="summary-icon">💬</span>
+                        <span class="summary-label">Msgs texto</span>
+                        <span class="summary-value">39.770</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span class="summary-icon">🎬</span>
+                        <span class="summary-label">Reels</span>
+                        <span class="summary-value">9.537</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span class="summary-icon">🎙️</span>
+                        <span class="summary-label">Áudios</span>
+                        <span class="summary-value">8.059</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span class="summary-icon">📸</span>
+                        <span class="summary-label">Fotos</span>
+                        <span class="summary-value">1.386</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span class="summary-icon">🎥</span>
+                        <span class="summary-label">Vídeos</span>
+                        <span class="summary-value">163</span>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span class="summary-icon">❤️</span>
+                        <span class="summary-label">Curtidas</span>
+                        <span class="summary-value">500</span>
+                    </div>
+                </div>
+                
+                <div class="total-card">
+                    <div class="total-label">TOTAL DE INTERAÇÕES</div>
+                    <div class="total-value">59.415</div>
+                </div>
+                
+                <p class="comparison">
+                    Pouca coisa né <span class="emoji">kkkk</span>
+                </p>
+            </div>
+            
+            <div class="slide-footer">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 90%"></div>
+                </div>
+                <div class="slide-counter">9/10</div>
+            </div>
+        </div>
+        
+        <!-- SLIDE 10 - FINAL -->
+        <div class="slide" id="slide-10">
+            <div class="slide-content">
+                <div class="final-message">
+                    <p>E que venham mais</p>
+                    <div class="highlight-number">365</div>
+                    <p>dias de muita zoeira, memes e<br>áudios de 5 minutos!</p>
+                </div>
+                
+                <div class="final-emojis">
+                    <span>🎉</span>
+                    <span>🎉</span>
+                    <span>🎉</span>
+                </div>
+                
+                <div class="final-title">ESTAMOS SÓ COMEÇANDO!</div>
+                
+                <div class="credits">
+                    Feito com <span class="heart">❤️</span> por<br>
+                    Jaime
+                </div>
+            </div>
+            
+            <div class="slide-footer">
+                <div class="progress-bar">
+                    <div class="progress" style="width: 100%"></div>
+                </div>
+                <div class="slide-counter">10/10</div>
+            </div>
+        </div>
+        
+        <!-- Botões de navegação -->
+        <button class="nav-button prev" onclick="prevSlide()" id="prevBtn">←</button>
+        <button class="nav-button next" onclick="nextSlide()" id="nextBtn">→</button>
+        
+        <!-- Indicadores de slide (bolinhas) -->
+        <div class="slide-indicators">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+            <span class="dot" onclick="goToSlide(3)"></span>
+            <span class="dot" onclick="goToSlide(4)"></span>
+            <span class="dot" onclick="goToSlide(5)"></span>
+            <span class="dot" onclick="goToSlide(6)"></span>
+            <span class="dot" onclick="goToSlide(7)"></span>
+            <span class="dot" onclick="goToSlide(8)"></span>
+            <span class="dot" onclick="goToSlide(9)"></span>
+        </div>
+        
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
