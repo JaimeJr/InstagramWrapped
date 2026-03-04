@@ -1,0 +1,256 @@
+// script.js - VERSÃO CORRIGIDA
+
+// Variáveis globais
+let currentSlide = 0;
+const totalSlides = 11; // 0 a 10 (11 slides)
+
+// Aguarda o carregamento completo da página
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM carregado - inicializando slides'); // Para debug
+    
+    // Inicializa os slides
+    showSlide(currentSlide);
+    
+    // Adiciona eventos de teclado
+    document.addEventListener('keydown', handleKeyPress);
+    
+    // Adiciona eventos de toque para mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    document.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    }, false);
+    
+    document.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, false);
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        if (touchEndX < touchStartX - swipeThreshold) {
+            nextSlide(); // Swipe esquerdo → próximo
+        }
+        if (touchEndX > touchStartX + swipeThreshold) {
+            prevSlide(); // Swipe direito → anterior
+        }
+    }
+});
+
+// FUNÇÕES GLOBAIS (acessíveis pelo onclick)
+window.nextSlide = function() {
+    console.log('nextSlide chamado'); // Para debug
+    if (currentSlide < totalSlides - 1) {
+        showSlide(currentSlide + 1);
+    }
+};
+
+window.prevSlide = function() {
+    console.log('prevSlide chamado'); // Para debug
+    if (currentSlide > 0) {
+        showSlide(currentSlide - 1);
+    }
+};
+
+window.goToSlide = function(index) {
+    console.log('goToSlide chamado:', index); // Para debug
+    showSlide(index);
+};
+
+// Função principal para mostrar slides
+function showSlide(index) {
+    console.log('Mostrando slide:', index); // Para debug
+    
+    // Valida o índice
+    if (index < 0) index = 0;
+    if (index >= totalSlides) index = totalSlides - 1;
+    
+    // Esconde todos os slides
+    const slides = document.querySelectorAll('.slide');
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+    });
+    
+    // Mostra o slide atual
+    const currentSlideElement = document.getElementById(`slide-${index}`);
+    if (currentSlideElement) {
+        currentSlideElement.classList.add('active');
+    } else {
+        console.error(`Slide slide-${index} não encontrado!`);
+    }
+    
+    // Atualiza o contador de slides no footer
+    updateSlideCounter(index);
+    
+    // Atualiza as bolinhas indicadoras
+    updateDots(index);
+    
+    // Atualiza a barra de progresso
+    updateProgressBar(index);
+    
+    // Atualiza a variável global
+    currentSlide = index;
+    
+    // Mostra/esconde botões de navegação
+    updateNavButtons(index);
+    
+    // Reseta as animações
+    resetAnimations(index);
+}
+
+// Funções auxiliares
+function updateSlideCounter(index) {
+    const counters = document.querySelectorAll('.slide-counter');
+    counters.forEach(counter => {
+        counter.textContent = `${index + 1}/${totalSlides}`;
+    });
+}
+
+function updateDots(index) {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, i) => {
+        if (i === index) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+function updateProgressBar(index) {
+    const progressBars = document.querySelectorAll('.progress');
+    const percent = ((index + 1) / totalSlides) * 100;
+    progressBars.forEach(bar => {
+        bar.style.width = `${percent}%`;
+    });
+}
+
+function updateNavButtons(index) {
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    
+    if (prevBtn && nextBtn) {
+        // No primeiro slide, desabilita o botão anterior
+        if (index === 0) {
+            prevBtn.style.opacity = '0.3';
+            prevBtn.style.pointerEvents = 'none';
+        } else {
+            prevBtn.style.opacity = '1';
+            prevBtn.style.pointerEvents = 'auto';
+        }
+        
+        // No último slide, desabilita o botão próximo
+        if (index === totalSlides - 1) {
+            nextBtn.style.opacity = '0.3';
+            nextBtn.style.pointerEvents = 'none';
+        } else {
+            nextBtn.style.opacity = '1';
+            nextBtn.style.pointerEvents = 'auto';
+        }
+    }
+}
+
+function resetAnimations(index) {
+    const slide = document.getElementById(`slide-${index}`);
+    if (slide) {
+        const animatedElements = slide.querySelectorAll('.slide-title, .context-text, .highlight-text, .footer-note, .ranking-container, .pages-ranking, .stats-comparison, .audio-stats, .streak-container, .hours-container, .summary-grid, .final-message, .final-emojis, .credits');
+        
+        animatedElements.forEach(element => {
+            element.style.animation = 'none';
+            element.offsetHeight; // Força reflow
+            element.style.animation = '';
+        });
+    }
+}
+
+function handleKeyPress(event) {
+    switch(event.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+        case ' ':
+        case 'Space':
+            event.preventDefault();
+            nextSlide();
+            break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+            event.preventDefault();
+            prevSlide();
+            break;
+        case 'Home':
+            event.preventDefault();
+            goToSlide(0);
+            break;
+        case 'End':
+            event.preventDefault();
+            goToSlide(totalSlides - 1);
+            break;
+    }
+}
+
+// Função para criar confetes (opcional)
+window.createConfetti = function() {
+    if (currentSlide === totalSlides - 1) {
+        for (let i = 0; i < 20; i++) {
+            setTimeout(() => {
+                const confetti = document.createElement('span');
+                confetti.innerHTML = ['🎉', '🎊', '✨', '🌟', '💫'][Math.floor(Math.random() * 5)];
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.top = '-10px';
+                confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                confetti.style.zIndex = '1000';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.animation = `fall ${Math.random() * 2 + 2}s linear forwards`;
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 4000);
+            }, i * 100);
+        }
+    }
+};
+
+// Adiciona animação de queda para confetes
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fall {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+`;
+document.head.appendChild(style);
+
+// Suporte para navegação por hash
+function checkHash() {
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#slide-')) {
+        const slideIndex = parseInt(hash.replace('#slide-', ''));
+        if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < totalSlides) {
+            showSlide(slideIndex);
+        }
+    }
+}
+
+window.addEventListener('load', function() {
+    checkHash();
+    // Tenta criar confetes no último slide se estiver nele
+    window.createConfetti();
+});
+
+// Atualiza o hash quando o slide muda
+function updateHash(index) {
+    window.location.hash = `slide-${index}`;
+}
+
+// Sobrescreve showSlide para incluir hash e confetes
+const originalShowSlide = showSlide;
+showSlide = function(index) {
+    originalShowSlide(index);
+    updateHash(index);
+    window.createConfetti();
+};
+
+console.log('Script carregado com sucesso!'); // Para debug

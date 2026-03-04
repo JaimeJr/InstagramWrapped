@@ -753,7 +753,7 @@ body {
     background-color: #c0e0c0;
 }
 
-/* BOTÕES DE NAVEGAÇÃO 
+/* BOTÕES DE NAVEGAÇÃO */
 .nav-button {
     position: fixed;
     top: 50%;
@@ -783,7 +783,7 @@ body {
 .nav-button.prev { left: 10px; }
 .nav-button.next { right: 10px; }
 
-.slide.active ~ .nav-button { display: flex; }*/
+.slide.active ~ .nav-button { display: flex; }
 
 /* INDICADORES DE SLIDE - AJUSTADO */
 .slide-indicators {
